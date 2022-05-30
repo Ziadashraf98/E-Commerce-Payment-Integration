@@ -9,7 +9,6 @@ use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 
 
-
 class HomeController extends Controller
 {
     public function index()
@@ -98,6 +97,8 @@ class HomeController extends Controller
         $cart->delete();
         return back();
     }
+
+    
 
     public function cash_order()
     {
