@@ -29,7 +29,7 @@
     
                     <form 
                             role="form" 
-                            action="{{ route('stripe.post') }}" 
+                            action="{{ route('stripe.post' , $totalprice) }}" 
                             method="post" 
                             class="require-validation"
                             data-cc-on-file="false"
