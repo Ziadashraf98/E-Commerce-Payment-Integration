@@ -7,6 +7,9 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Stripe;
+
 
 
 class HomeController extends Controller
@@ -98,8 +101,6 @@ class HomeController extends Controller
         return back();
     }
 
-    
-
     public function cash_order()
     {
         $user = Auth::user();
@@ -129,6 +130,27 @@ class HomeController extends Controller
         return back()->with('message' , 'We have Received your Order. We will connect with you soon...');
 
          
+    }
+
+    public function stripe($totalprice)
+    {
+        return view('home.stripe' , compact('totalprice'));
+    }
+
+    public function stripePost(Request $request)
+    {
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    
+        Stripe\Charge::create ([
+                "amount" => 100 * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Thanks for payment." 
+        ]);
+      
+        Session::flash('success', 'Payment successful!');
+              
+        return back();
     }
 
 }
