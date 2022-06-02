@@ -9,7 +9,7 @@
     
 <div class="container">
     
-        <h1>Pay Using Pay Card - Total Amount {{$totalprice}}</h1>
+        <h1>Pay Using Pay Card - Total Amount ${{$totalprice}}</h1>
 
     
     <div class="row">
