@@ -27,7 +27,7 @@ Route::middleware([
 
 
 // ========================={HomeController}==============================
-Route::get('/redirect' , [HomeController::class , 'redirect']);
+Route::get('/redirect' , [HomeController::class , 'redirect'])->middleware('auth' , 'verified');
 Route::get('/' , [HomeController::class , 'index']);
 Route::get('/product_details/{id}' , [HomeController::class , 'product_details']);
 Route::Post('/add_cart/{id}' , [HomeController::class , 'add_cart']);
