@@ -128,4 +128,12 @@ class AdminController extends Controller
         Notification::send($order , new SendEmailNotification($details));
         return back();
     }
+
+    public function searchData(Request $request)
+    {
+        $search = $request->search;
+        $order = Order::where('name' , $search)->orWhere('phone' , $search)
+        ->orWhere('product_title' , $search)->get();
+        return view('admin.order' , compact('order'));
+    }
 }
