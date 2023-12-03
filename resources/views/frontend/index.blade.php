@@ -28,7 +28,11 @@
    
 </head>
    <body>
+      
+      @if(session()->has('userLogin'))
       @include('sweetalert::alert')
+      @endif
+      
       <div class="hero_area">
          <!-- header section strats -->
          @include('frontend.layouts.navbar')

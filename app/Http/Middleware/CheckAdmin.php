@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CheckAdmin
 {
@@ -19,7 +20,7 @@ class CheckAdmin
     {
         if(Auth::user()->is_admin == false)
         {
-            return redirect()->route('redirect');
+            return redirect()->route('redirect')->with('userLogin' , Alert::success("You have logged successfully" , 'welcome'));
         }
                 
         return $next($request);

@@ -19,9 +19,6 @@ class HomePageController extends Controller
     public function redirect()
     {
         $products = Product::paginate(3);
-
-        session()->get('userLogin') == date('s', strtotime(now())) ? Alert::success("You have logged successfully" , 'welcome') : null;
-
         return view('frontend.index' , compact('products'));
     }
 }

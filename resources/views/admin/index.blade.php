@@ -9,7 +9,9 @@
 
 	<body class="main-body app sidebar-mini dark-theme">
 		
+		@if(session()->has('adminLogin'))
 		@include('sweetalert::alert')
+		@endif
 
 		<!-- Loader -->
 		@include('admin.layouts.preloader')
