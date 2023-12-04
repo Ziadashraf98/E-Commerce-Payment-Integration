@@ -20,7 +20,7 @@ class CheckAdmin
     {
         if(Auth::user()->is_admin == false)
         {
-            if(Auth::user()->created_at->format('s') == date('s', strtotime(now())))
+            if(Auth::user()->created_at->format('i') == date('i', strtotime(now())))
             {
                 return redirect()->route('redirect')->with('userRegister' , Alert::success("You have registered successfully" , 'welcome'));
             }
