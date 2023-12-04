@@ -29,7 +29,7 @@
 </head>
    <body>
       
-      @if(session()->has('userLogin'))
+      @if(session()->has('userLogin') || session()->has('userRegister'))
       @include('sweetalert::alert')
       @endif
       
