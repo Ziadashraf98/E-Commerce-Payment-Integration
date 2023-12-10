@@ -36,6 +36,7 @@ class CartController extends Controller
     public function show_cart()
     {
         $carts = session()->get('cart');
+        
         $total_price = false; 
 
         foreach((array)$carts as $cart)
@@ -49,8 +50,11 @@ class CartController extends Controller
     public function delete_cart($product_id)
     {
         $cart = session()->get('cart');
+        
         unset($cart[$product_id]);
+        
         session()->put('cart' , $cart);
+        
         return back()->with(['success'=>"You have deleted the product from cart"]);
     }
 }

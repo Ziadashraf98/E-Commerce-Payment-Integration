@@ -19,7 +19,7 @@
     
     <div class="container">
     
-    <h1 style="text-align: center; font-size:24px; padding-bottom:20px;">Pay Using Pay Card - Total Amount ${{$totalPrice}}</h1>
+    <h1 style="text-align: center; font-size:24px; padding-bottom:20px;">Pay Using Pay Card - Total Amount {{getCurrency()}} {{$totalPrice}}</h1>
     
     <div class="row">
         <div class="col-md-6 col-md-offset-3">

@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\Cart\CartController;
 use App\Http\Controllers\Frontend\Google\GoogleController;
 use App\Http\Controllers\Frontend\HomePage\HomePageController;
 use App\Http\Controllers\Frontend\Order\OrderController;
+use App\Http\Controllers\Frontend\PayPal\PaypalController;
 use App\Http\Controllers\Frontend\Product\ProductController;
 use App\Http\Controllers\Frontend\Stripe\StripeController;
 use Illuminate\Support\Facades\Auth;
@@ -62,6 +63,15 @@ Route::group(
     
         Route::get('/stripe/{totalPrice}' , 'stripe')->name('stripe');
         Route::post('/stripe/{totalPrice}' , 'stripePost')->name('stripe.post');
+    });
+    });
+    
+    Route::group(['prefix'=>'paypal' , 'middleware'=>'auth'] , function(){
+        Route::controller(PaypalController::class)->group(function() {
+    
+        Route::get('/' , 'index')->name('paypal.index');
+        Route::get('/success' , 'success')->name('paypal.success');
+        Route::get('/cancel' , 'cancel')->name('paypal.cancel');
     });
     });
 

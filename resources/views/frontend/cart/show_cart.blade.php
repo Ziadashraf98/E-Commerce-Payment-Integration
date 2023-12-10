@@ -64,9 +64,10 @@ table,th,td
   </div>
 
 <div>
-    <h1 style="font-size:25px; padding-bottom:15px;">Proceed to Order</h1>
-    <a href="{{route('cash_order')}}" onclick="confirmation_cash_order(event)" class="btn btn-danger">Cash On Delivery</a>
-    <a href="{{route('stripe' , $total_price)}}" class="btn btn-danger">Pay Using Card</a>
+    <h1 style="font-size:25px; padding-bottom:30px;">Proceed to Order</h1>
+    <a href="{{route('cash_order')}}" onclick="confirmation_cash_order(event)" class="btn btn-success">Cash On Delivery</a>
+    <a href="{{route('stripe' , $total_price)}}" class="btn btn-secondary"  target="_blank">Pay Using Card (Stripe)</a>
+    <a href="{{route('paypal.index')}}" class="btn btn-info" target="_blank">Pay Using Card (PayPal)</a>
 </div>
 
 @endif
@@ -81,6 +82,10 @@ table,th,td
    
    @if(session()->has('success'))
    <script>toastr.success("{{session()->get('success')}}");</script>
+   @endif
+   
+   @if(session()->has('error'))
+   <script>toastr.error("{{session()->get('error')}}");</script>
    @endif
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
