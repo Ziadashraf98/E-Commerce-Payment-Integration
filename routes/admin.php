@@ -21,13 +21,13 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath' , 'auth']
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ], function(){ 
         
         
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard')->middleware('checkAdmin');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard')->middleware(['checkAdmin','auth:admin,web']);
         
-    Route::group(['prefix'=>'dashboard'],function(){
+    Route::group(['prefix'=>'dashboard' , 'middleware'=>'auth:admin'],function(){
 
         Route::resources([
             'categories'=>CategoryController::class,

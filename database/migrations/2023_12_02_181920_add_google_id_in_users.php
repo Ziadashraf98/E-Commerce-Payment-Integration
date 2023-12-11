@@ -14,7 +14,7 @@ class AddGoogleIdInUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('google_id')->nullable()->after('is_admin');
+            $table->string('google_id')->nullable()->after('address');
         });
     }
 

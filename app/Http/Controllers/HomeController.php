@@ -17,7 +17,7 @@ class HomeController extends Controller
      * @return void
      */
     // public function __construct()
-    // {w
+    // {
     //     $this->middleware('auth:admin');
     // }
 
@@ -30,7 +30,7 @@ class HomeController extends Controller
     {
         $products = Product::count();
         $orders = Order::count();
-        $users = User::whereIsAdmin(false)->count();
+        $users = User::count();
         
         return view('admin.index' , compact('products','orders','users'));
     }

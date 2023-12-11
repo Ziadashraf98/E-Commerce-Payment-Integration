@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -14,13 +15,12 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        User::where('is_admin' , true)->delete();
+        Admin::truncate();
         
-        User::create([
+        Admin::create([
             'name'=>'admin',
             'email'=>'admin@admin.com',
             'password'=>bcrypt('12345'),
-            'is_admin'=>true,
         ]);
     }
 }

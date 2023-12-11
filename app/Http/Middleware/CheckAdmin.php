@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,9 +19,9 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->is_admin == false)
+        if(Auth::guard('web')->check()) //or if(session()->get('guard') == 'web')
         {
-            if(Auth::user()->created_at->format('i') == date('i', strtotime(now())))
+            if(User::latest()->first()->created_at->format('i') == date('i', strtotime(now())))
             {
                 return redirect()->route('redirect')->with('userRegister' , Alert::success("You have registered successfully" , 'welcome'));
             }

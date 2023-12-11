@@ -33,8 +33,8 @@ Route::group(
         
     Route::controller(HomePageController::class)->group(function() {
     
-        Route::get('/' , 'index')->name('/')->middleware('guest');
-        Route::get('/redirect' , 'redirect')->name('redirect');
+        Route::get('/' , 'index')->name('/')->middleware('guest:web,admin');
+        Route::get('/redirect' , 'redirect')->name('redirect')->middleware('auth');
     });
     
     Route::controller(ProductController::class)->group(function() {

@@ -229,7 +229,7 @@
                             <div class="d-flex wd-100p">
                                 <div class="main-img-user"><img alt="" src="{{asset('admin/assets/img/faces/admin.png')}}" style="background: white" class=""></div>
                                 <div class="ml-3 my-auto">
-                                    <h6>{{Auth::user()->name}}</h6><span>{{Auth::user()->email}}</span>
+                                    <h6>{{Auth::guard('admin')->user()?->name}}</h6><span>{{Auth::guard('admin')->user()?->email}}</span>
                                 </div>
                             </div>
                         </div>
