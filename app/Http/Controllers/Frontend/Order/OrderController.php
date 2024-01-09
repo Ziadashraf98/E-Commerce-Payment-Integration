@@ -22,8 +22,7 @@ class OrderController extends Controller
                 'image'=>$cart['image'],
                 'product_id'=>$cart['product_id'],
                 'user_id'=>Auth::id(),
-                'payment_method'=>'cash',
-                'status'=>'cash on delivery',
+                'payment_method'=>'cash on delivery',
             ]);
         }
 

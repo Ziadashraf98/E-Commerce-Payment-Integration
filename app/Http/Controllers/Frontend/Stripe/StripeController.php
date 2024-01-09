@@ -38,7 +38,7 @@ class StripeController extends Controller
                 'image'=>$cart['image'],
                 'product_id'=>$cart['product_id'],
                 'user_id'=>Auth::id(),
-                'payment_status'=>'visa',
+                'payment_method'=>'visa',
             ]);
         }
 

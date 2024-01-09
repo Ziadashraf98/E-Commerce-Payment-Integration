@@ -53,7 +53,7 @@
                             <td>{{$order->price}}</td>
                             <td>{{str_replace('-',' ',$order->product->title)}}</td>
                             {{-- @if($order->payment_status == 'cash on delivery') --}}
-                            <td>{{$order->payment_status}}</td>
+                            <td>{{$order->payment_method}}</td>
                             {{-- @else
                             <td><h5 class="text-success">{{$order->payment_status}}</h5></td>
                             @endif --}}

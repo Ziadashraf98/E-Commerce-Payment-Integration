@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('image')->nullable();
             $table->foreignId('product_id')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->enum('payment_status' , ['cash on delivery' , 'visa'])->nullable();
+            $table->enum('payment_method' , ['cash on delivery' , 'visa'])->nullable();
             $table->enum('delivery_status' , ['processing' , 'delivered'])->default('processing');
             $table->timestamps();
         });
