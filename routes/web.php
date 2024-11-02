@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\Cart\CartController;
+use App\Http\Controllers\Frontend\Facebook\FacebookController;
 use App\Http\Controllers\Frontend\Google\GoogleController;
 use App\Http\Controllers\Frontend\HomePage\HomePageController;
 use App\Http\Controllers\Frontend\Order\OrderController;
@@ -81,6 +82,11 @@ Route::group(
         Route::get('/auth/google/callback' , 'googleCallback');
     });
     
+    Route::controller(FacebookController::class)->group(function() {
+    
+        Route::get('/auth/facebook' , 'facebookPage')->name('facebookPage');
+        Route::get('/auth/facebook/callback' , 'facebookCallback');
+    });
 });
 
 

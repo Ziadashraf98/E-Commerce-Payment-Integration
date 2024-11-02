@@ -31,9 +31,15 @@ return [
     ],
     
     'google' => [
-        'client_id' => env('client_id'),
-        'client_secret' => env('client_secret'),
+        'client_id' => env('google_client_id'),
+        'client_secret' => env('google_client_secret'),
         'redirect'=>'http://127.0.0.1:8000/auth/google/callback',
+    ],
+    
+    'facebook' => [
+        'client_id' => env('facebook_client_id'),
+        'client_secret' => env('facebook_client_secret'),
+        'redirect'=>'http://localhost:8000/auth/facebook/callback',
     ],
 
 ];

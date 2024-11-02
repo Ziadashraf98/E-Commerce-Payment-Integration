@@ -67,7 +67,10 @@
 														<button class="btn btn-main-primary btn-block">Unlock</button>
 														<div class="row row-xs">
 															<div class="col-sm-6 mg-t-10 mg-sm-t-0">
-																<a class="btn btn-success btn-block" href="{{route('googlePage')}}"><i class="fab fa-google"></i> Sign in with Google</a>
+																<a class="btn btn-primary btn-block" href="{{route('facebookPage')}}"><i class="fab fa-facebook-f"></i> Signin with Facebook</a>
+															</div>
+															<div class="col-sm-6 mg-t-10 mg-sm-t-0">
+																<a class="btn btn-success btn-block" href="{{route('googlePage')}}"><i class="fab fa-google"></i> Signin with Google</a>
 															</div>
 														</div>
 													</form>
